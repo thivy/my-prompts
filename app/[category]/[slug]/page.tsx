@@ -30,7 +30,7 @@ export default async function PromptPage({
   const components = { Image } as const;
 
   return (
-    <article className="prose max-w-none">
+    <article className="max-w-none">
       <h1 className="font-bold text-3xl mb-2">{meta.title}</h1>
       {meta.description && <p className="text-gray-600">{meta.description}</p>}
 
@@ -53,7 +53,7 @@ export default async function PromptPage({
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="prose ">
         <MDXRemote source={body} components={components} />
       </div>
     </article>
