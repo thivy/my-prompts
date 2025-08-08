@@ -42,9 +42,9 @@ This repo is configured to export a static site and deploy to GitHub Pages via A
 1. In GitHub, go to Settings → Pages and set Source to GitHub Actions.
 2. Ensure your default branch is `main`.
 3. Push to `main`. The workflow `.github/workflows/gh-pages.yml` will:
-	- Set `NEXT_PUBLIC_BASE_PATH` to the repository name.
-	- Run `next build` (static export to `out/`).
-	- Publish `out/` to Pages.
+   - Set `NEXT_PUBLIC_BASE_PATH` to the repository name.
+   - Run `next build` (static export to `out/`).
+   - Publish `out/` to Pages.
 
 Local export test (PowerShell):
 
