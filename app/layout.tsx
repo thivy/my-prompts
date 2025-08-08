@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,7 +28,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="sticky top-0 z-30 border-b border-black/10 bg-white/80 backdrop-blur">
+          <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+            <Link href="/" className="text-lg font-semibold tracking-tight">
+              AI Prompt Gallery
+            </Link>
+            <nav className="text-sm text-gray-600">
+              <Link href="/categories" className="hover:text-black">
+                Categories
+              </Link>
+            </nav>
+          </div>
+        </header>
+        <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
+        <footer className="border-t border-black/10 py-8 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} AI Prompt Gallery
+        </footer>
       </body>
     </html>
   );
