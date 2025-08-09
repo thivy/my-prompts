@@ -1,9 +1,10 @@
+import Callout from "@/components/callout";
 import {
   getAllCategories,
   getPrompt,
   getPromptsByCategory,
 } from "@/lib/content";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { renderMarkdoc } from "@/lib/markdoc";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -27,7 +28,7 @@ export default async function PromptPage({
   const data = getPrompt(category, slug);
   if (!data) return notFound();
   const { meta, body } = data;
-  const components = { Image } as const;
+  const mdComponents = { Callout } as const;
 
   return (
     <article className="max-w-none">
@@ -53,9 +54,7 @@ export default async function PromptPage({
         </div>
       )}
 
-      <div className="prose ">
-        <MDXRemote source={body} components={components} />
-      </div>
+      <div>{renderMarkdoc(body, mdComponents)}</div>
     </article>
   );
 }

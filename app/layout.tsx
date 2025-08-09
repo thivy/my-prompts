@@ -1,11 +1,16 @@
 import { ContentContainer } from "@/components/content-container";
 import { PageHeader } from "@/components/page-header";
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -22,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.className} antialiased scroll-smooth bg-slate-100`}
+        className={`${inter.className} antialiased scroll-smooth bg-slate-100`}
       >
         <PageHeader />
         <ContentContainer>{children}</ContentContainer>

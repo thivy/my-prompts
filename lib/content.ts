@@ -40,20 +40,29 @@ export function getAllCategories(): {
 export function getPromptsByCategory(category: string): Prompt[] {
   const dir = path.join(CONTENT_DIR, category);
   if (!fs.existsSync(dir)) return [];
-  return fs
+  const files = fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((file) => {
-      const filePath = path.join(dir, file);
-      const source = fs.readFileSync(filePath, "utf8");
-      const { data } = matter(source);
-      return normalizeFrontmatter({
-        slug: file.replace(/\.mdx$/, ""),
-        ...data,
-        category,
-      });
-    })
-    .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"));
+
+  // Prefer .md over .mdx when both exist
+  const bySlug = new Map<string, string>();
+  for (const file of files) {
+    const slug = file.replace(/\.(md|mdx)$/i, "");
+    const isMd = file.toLowerCase().endsWith(".md");
+    if (!bySlug.has(slug) || isMd) {
+      bySlug.set(slug, file);
+    }
+  }
+
+  const prompts: Prompt[] = [];
+  for (const [slug, file] of bySlug) {
+    const filePath = path.join(dir, file);
+    const source = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(source);
+    prompts.push(normalizeFrontmatter({ slug, ...data, category }));
+  }
+
+  return prompts.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 }
 
 export function getAllPrompts(): Prompt[] {
@@ -70,7 +79,9 @@ export function getPrompt(
   category: string,
   slug: string
 ): { meta: Prompt; body: string } | null {
-  const filePath = path.join(CONTENT_DIR, category, `${slug}.mdx`);
+  const mdPath = path.join(CONTENT_DIR, category, `${slug}.md`);
+  const mdxPath = path.join(CONTENT_DIR, category, `${slug}.mdx`);
+  const filePath = fs.existsSync(mdPath) ? mdPath : mdxPath;
   if (!fs.existsSync(filePath)) return null;
   const source = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(source);
