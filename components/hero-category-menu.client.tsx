@@ -13,7 +13,7 @@ export function HeroCategoryMenuClient({
 }) {
   // Single icon image for all categories
   const ICON_SRC =
-    "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/vision-pro-card-66-vision-pro-202401";
+    "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/store-card-13-accessories-nav-202503";
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -120,7 +120,7 @@ export function HeroCategoryMenuClient({
                   href={`/categories/${c.slug}`}
                   className="group inline-flex flex-col items-stretch gap-3 rounded-xl pr-3 ring-0 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
                 >
-                  <span className="relative size-[130px] overflow-hidden rounded-lg bg-slate-100">
+                  <span className="relative size-[120px] overflow-hidden rounded-lg ">
                     <Image
                       src={ICON_SRC}
                       alt={c.name}
@@ -128,7 +128,7 @@ export function HeroCategoryMenuClient({
                       className="object-contain"
                     />
                   </span>
-                  <span className="text-sm font-medium text-slate-800 text-center group-hover:text-slate-900">
+                  <span className="text-sm font-medium transition duration-1000 text-slate-600 text-center group-hover:text-slate-900">
                     {c.name}
                   </span>
                 </Link>
