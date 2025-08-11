@@ -118,7 +118,7 @@ export function HeroCategoryMenuClient({
               >
                 <Link
                   href={`/categories/${c.slug}`}
-                  className="group inline-flex flex-col items-stretch gap-3 rounded-xl border border-slate-200 bg-white/70 px-2.5 py-2 pr-3 shadow-sm backdrop-blur ring-0 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+                  className="group inline-flex flex-col items-stretch gap-3 rounded-xl pr-3 ring-0 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
                 >
                   <span className="relative size-[130px] overflow-hidden rounded-lg bg-slate-100">
                     <Image
