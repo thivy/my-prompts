@@ -1,3 +1,4 @@
+import HeroCategoryMenu from "@/components/hero-category-menu";
 import { getAllCategories, getFeaturedPrompts } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +17,9 @@ export default function Home() {
           Browse by category and dive into detailed prompts with examples.
         </p>
       </section>
+
+      {/* Full-width hero category menu that aligns its first item with container padding */}
+      <HeroCategoryMenu />
 
       <section className="space-y-4">
         <div className="flex items-center justify-between">
