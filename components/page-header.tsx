@@ -2,7 +2,7 @@ import { ContentContainer } from "./content-container";
 
 export const PageHeader = () => {
   return (
-    <ContentContainer className="py-6 space-y-3">
+    <ContentContainer className="py-6 space-y-2">
       <h1 className="scroll-m-20 text-4xl  tracking-tight text-balance">
         <span className="font-extrabold">Pixel</span>Prompt
       </h1>

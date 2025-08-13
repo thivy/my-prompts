@@ -2,13 +2,8 @@ import { HeroCategoryMenu } from "@/components/hero-category-menu";
 import { PageHeader } from "@/components/page-header";
 import { getAllCategories } from "@/lib/content";
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
