@@ -1,4 +1,3 @@
-import HeroCategoryMenu from "@/components/hero-category-menu";
 import { getAllCategories, getFeaturedPrompts } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,18 +8,7 @@ export default function Home() {
 
   return (
     <div className="space-y-10">
-      <section className="space-y-3">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Discover AI-Generated Images
-        </h1>
-        <p className="text-gray-600">
-          Browse by category and dive into detailed prompts with examples.
-        </p>
-      </section>
-
       {/* Full-width hero category menu that aligns its first item with container padding */}
-      <HeroCategoryMenu />
-
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold">Categories</h2>

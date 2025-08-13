@@ -1,5 +1,6 @@
-import { ContentContainer } from "@/components/content-container";
+import { HeroCategoryMenu } from "@/components/hero-category-menu";
 import { PageHeader } from "@/components/page-header";
+import { getAllCategories } from "@/lib/content";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
@@ -24,13 +25,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const categories = getAllCategories();
   return (
     <html lang="en">
       <body
         className={`${inter.className} antialiased scroll-smooth bg-slate-100`}
       >
         <PageHeader />
-        <ContentContainer>{children}</ContentContainer>
+        <HeroCategoryMenu categories={categories} />
+        {children}
       </body>
     </html>
   );
