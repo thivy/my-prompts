@@ -6,7 +6,7 @@ export const PageHeader = () => {
       <h1 className="scroll-m-20 text-4xl  tracking-tight text-balance">
         <span className="font-extrabold">Pixel</span>Prompt
       </h1>
-      <p className="text-xl text-gray-600 text-balance tracking-tight font-medium">
+      <p className="text-lg sm:text-2xl text-gray-600 text-balance tracking-tight font-medium">
         A handpicked gallery of AI-fueled visuals and the prompts that power
         them.
       </p>

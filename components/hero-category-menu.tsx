@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
@@ -41,7 +39,7 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
               href={`/categories/${c.slug}`}
               className="group inline-flex flex-col items-stretch gap-2 rounded-xl pr-3 ring-0 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
             >
-              <span className="relative size-[100px] overflow-hidden rounded-lg ">
+              <span className="relative size-[30vw] sm:size-[100px] overflow-hidden rounded-lg">
                 <Image
                   src={ICON_SRC}
                   alt={c.name}
