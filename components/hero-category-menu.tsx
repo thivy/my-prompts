@@ -5,21 +5,21 @@ import { useMemo } from "react";
 type Category = { slug: string; name: string; cover?: string };
 
 export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
-  // Single icon image for all categories
+  // Single icon image for all categories as fallback
   const ICON_SRC = "/cover.png";
 
-  // Use only the real categories provided (no placeholders)
-
-  // create random category items
-  const createRandomCategories = (count: number): Category[] => {
-    return Array.from({ length: count }, (_, i) => ({
-      slug: `category-${i + 1}`,
-      name: `category-${i + 1}`,
-      cover: ICON_SRC,
+  // Use the real categories provided, with fallback cover image if none exists
+  const items: Category[] = useMemo(() => {
+    return categories.map(category => ({
+      ...category,
+      cover: category.cover || ICON_SRC
     }));
-  };
+  }, [categories]);
 
-  const items: Category[] = useMemo(() => createRandomCategories(5), []);
+  // Don't render the carousel if there are no categories
+  if (items.length === 0) {
+    return null;
+  }
 
   return (
     <nav
@@ -41,10 +41,11 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
             >
               <span className="relative size-[30vw] sm:size-[100px] overflow-hidden rounded-lg">
                 <Image
-                  src={ICON_SRC}
+                  src={c.cover}
                   alt={c.name}
                   fill
                   className="object-contain"
+                  unoptimized
                 />
               </span>
               <span className="text-sm font-medium transition duration-1000 text-slate-600 text-center group-hover:text-slate-900">
