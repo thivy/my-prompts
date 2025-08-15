@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
   //       assetPrefix: "" + normalizedBasePath,
   //     }
   //   : {}),
-  assetPrefix: basePathEnv ? "/my-prompts" : undefined,
+  assetPrefix: "/my-prompts",
   experimental: {
     // Keep default experimental options, if any, and enable mdxRs if needed by Next 15
   },
