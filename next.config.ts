@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
   ...(normalizedBasePath
     ? {
         basePath: normalizedBasePath,
-        assetPrefix: "/test/" + normalizedBasePath,
+        assetPrefix: "" + normalizedBasePath,
       }
     : {}),
   experimental: {
@@ -40,4 +40,6 @@ const nextConfig: NextConfig = {
   },
 };
 
+console.log("Normalized base path:", normalizedBasePath);
+console.log("Base path: ", nextConfig);
 export default withMDX(nextConfig);
