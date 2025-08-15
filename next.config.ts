@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
   ...(normalizedBasePath
     ? {
         basePath: normalizedBasePath,
-        assetPrefix: normalizedBasePath,
+        assetPrefix: "/test/" + normalizedBasePath,
       }
     : {}),
   experimental: {
