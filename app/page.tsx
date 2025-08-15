@@ -52,9 +52,9 @@ export default function Home() {
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Featured Prompts</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {featured.map((p) => (
+          {featured.map((p, index) => (
             <Link
-              key={`${p.category}-${p.slug}`}
+              key={`${p.category}-${index}`}
               href={`/${p.category}/${p.slug}`}
               className="group"
             >
