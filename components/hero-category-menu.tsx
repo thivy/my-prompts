@@ -6,7 +6,7 @@ type Category = { slug: string; name: string; cover?: string };
 
 export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
   // Single icon image for all categories
-  const ICON_SRC = "cover.png";
+  const ICON_SRC = "/cover.png";
 
   // Use only the real categories provided (no placeholders)
 
