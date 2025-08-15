@@ -106,3 +106,8 @@ function normalizeFrontmatter(data: Record<string, unknown>): Prompt {
 function toTitle(s: string) {
   return s.replace(/[-_]/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 }
+
+export const toImagePath = (path: string) => {
+  const basePathEnv = process.env.NEXT_PUBLIC_BASE_PATH?.trim();
+  return basePathEnv ? `${basePathEnv}/${path}` : `${path}`;
+};
