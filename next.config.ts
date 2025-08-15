@@ -32,6 +32,7 @@ const nextConfig: NextConfig = {
   images: {
     // Required for static export
     unoptimized: true,
+    path: "/conwwtent/",
     remotePatterns: [
       // Allow remote images if you later add external image URLs in MDX
       { protocol: "https", hostname: "images.unsplash.com" },

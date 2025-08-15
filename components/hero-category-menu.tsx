@@ -1,4 +1,3 @@
-import { toImagePath } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,7 +24,7 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
             >
               <span className="relative size-[30vw] sm:size-[100px] overflow-hidden rounded-lg">
                 <Image
-                  src={toImagePath(`/content/${c.slug}/icon.png`)}
+                  src={`./content/${c.slug}/icon.png`}
                   alt={c.name}
                   fill
                   className="object-contain"
