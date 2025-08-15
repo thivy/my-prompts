@@ -1,26 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo } from "react";
 
 type Category = { slug: string; name: string; cover?: string };
 
 export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
-  // Single icon image for all categories
-  const ICON_SRC = "/cover.png";
-
-  // Use only the real categories provided (no placeholders)
-
-  // create random category items
-  const createRandomCategories = (count: number): Category[] => {
-    return Array.from({ length: count }, (_, i) => ({
-      slug: `category-${i + 1}`,
-      name: `category-${i + 1}`,
-      cover: ICON_SRC,
-    }));
-  };
-
-  const items: Category[] = useMemo(() => createRandomCategories(5), []);
-
   return (
     <nav
       aria-label="Browse categories"
@@ -30,7 +13,7 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
         className="flex min-w-max gap-4 snap-x snap-mandatory overflow-x-auto
             pl-[var(--edge)]"
       >
-        {items.map((c) => (
+        {categories.map((c) => (
           <li
             key={c.slug}
             className="snap-start snap-always  scroll-mx-2 md:scroll-mx-3"
@@ -41,7 +24,7 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
             >
               <span className="relative size-[30vw] sm:size-[100px] overflow-hidden rounded-lg">
                 <Image
-                  src={ICON_SRC}
+                  src={`/content/${c.slug}/icon.png`}
                   alt={c.name}
                   fill
                   className="object-contain"
