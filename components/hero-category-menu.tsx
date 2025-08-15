@@ -10,7 +10,6 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
       aria-label="Browse categories"
       className="py-4 w-full overflow-x-auto scroll-smooth hide-scrollbar snap-x snap-mandatory [--edge:calc(max(1rem,(100%-72rem)/2))]"
     >
-      WE{process.env.NEXT_PUBLIC_BASE_PATH} WE
       <ul
         className="flex min-w-max gap-4 snap-x snap-mandatory overflow-x-auto
             pl-[var(--edge)]"
