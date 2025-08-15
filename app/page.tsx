@@ -1,4 +1,9 @@
-import { getAllCategories, getFeaturedPrompts } from "@/lib/content";
+import { CategoryScroll } from "@/components/category-scroll";
+import {
+  getAllCategories,
+  getFeaturedPrompts,
+  getPromptsByCategory,
+} from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,20 +13,16 @@ export default function Home() {
 
   return (
     <div className="space-y-10">
-      {/* Full-width hero category menu that aligns its first item with container padding */}
+      {categories.map((category) => (
+        <CategoryScroll
+          key={category.slug}
+          prompts={getPromptsByCategory(category.slug)}
+        />
+      ))}
       <section className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Categories</h2>
-          <Link
-            href="/categories"
-            className="text-sm text-blue-600 hover:underline"
-          >
-            View all
-          </Link>
-        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {categories.map((c) => (
-            <Link key={c.slug} href={`/categories/${c.slug}`} className="group">
+          {categories.map((c, index) => (
+            <Link key={index} href={`/categories/${c.slug}`} className="group">
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg border bg-gray-50">
                 {c.cover ? (
                   <Image

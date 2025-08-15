@@ -6,10 +6,9 @@ export type Prompt = {
   slug: string;
   title: string;
   category: string;
-  description?: string;
-  featured?: boolean;
-  images?: string[];
-  date?: string;
+  description: string;
+  featured: boolean;
+  images: string[];
 };
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -62,7 +61,7 @@ export function getPromptsByCategory(category: string): Prompt[] {
     prompts.push(normalizeFrontmatter({ slug, ...data, category }));
   }
 
-  return prompts.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  return prompts;
 }
 
 export function getAllPrompts(): Prompt[] {
@@ -101,7 +100,6 @@ function normalizeFrontmatter(data: Record<string, unknown>): Prompt {
     images: Array.isArray(data.images)
       ? (data.images as unknown[]).map(String)
       : [],
-    date: typeof data.date === "string" ? data.date : undefined,
   };
 }
 
