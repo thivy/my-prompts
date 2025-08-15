@@ -1,4 +1,5 @@
 import Callout from "@/components/callout";
+import { ContentContainer } from "@/components/content-container";
 import {
   getAllCategories,
   getPrompt,
@@ -31,30 +32,33 @@ export default async function PromptPage({
   const mdComponents = { Callout } as const;
 
   return (
-    <article className="max-w-none">
-      <h1 className="font-bold text-3xl mb-2">{meta.title}</h1>
-      {meta.description && <p className="text-gray-600">{meta.description}</p>}
+    <article className="max-w-none space-y-12">
+      <ContentContainer className="space-y-6">
+        <h1 className="font-semibold tracking-tight text-4xl">{meta.title}</h1>
+        {meta.description && (
+          <p className="text-gray-600">{meta.description}</p>
+        )}
+      </ContentContainer>
 
-      {meta.images && meta.images.length > 0 && (
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {meta.images.map((src, i) => (
-            <div
-              key={i}
-              className="relative aspect-square overflow-hidden rounded-lg border bg-gray-50"
-            >
-              <Image
-                src={src}
-                alt={`${meta.title} sample ${i + 1}`}
-                fill
-                unoptimized
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      )}
-
-      <div>{renderMarkdoc(body, mdComponents)}</div>
+      <ContentContainer className="text-2xl">
+        {renderMarkdoc(body, mdComponents)}
+      </ContentContainer>
+      <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
+        {meta.images.map((src, i) => (
+          <div
+            key={i}
+            className="relative aspect-square overflow-hidden rounded-xl bg-gray-50"
+          >
+            <Image
+              src={src}
+              alt={`${meta.title} sample ${i + 1}`}
+              fill
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
     </article>
   );
 }
