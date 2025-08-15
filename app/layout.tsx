@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased scroll-smooth bg-slate-100`}
+        className={`${inter.className} antialiased scroll-smooth bg-slate-100 space-y-12`}
       >
         <PageHeader />
         <HeroCategoryMenu categories={categories} />

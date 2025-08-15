@@ -1,7 +1,7 @@
 ---
 slug: cyberpunk-cat
 title: Cyberpunk Cat Portrait
-category: characters w
+category: characters
 featured: true
 description: A neon-lit portrait of a cyberpunk cat with glowing circuitry tattoos and a city skyline in the background.
 images:
