@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
   //       assetPrefix: "" + normalizedBasePath,
   //     }
   //   : {}),
+  basePath: "/my-prompts",
   assetPrefix: "/my-prompts",
   experimental: {
     // Keep default experimental options, if any, and enable mdxRs if needed by Next 15
@@ -41,6 +42,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-console.log("Normalized base path:", normalizedBasePath);
-console.log("Base path: ", nextConfig);
 export default withMDX(nextConfig);
