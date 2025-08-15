@@ -20,7 +20,12 @@ const nextConfig: NextConfig = {
   // Ensure URLs end with a slash to match GitHub Pages static hosting
   trailingSlash: true,
   // Prefix asset and route paths when deploying to a project page repo
-  basePath: "/conwwtent/",
+  ...(normalizedBasePath
+    ? {
+        basePath: normalizedBasePath,
+        assetPrefix: normalizedBasePath,
+      }
+    : {}),
   experimental: {
     // Keep default experimental options, if any, and enable mdxRs if needed by Next 15
   },
