@@ -3,7 +3,7 @@ import { ContentContainer } from "./content-container";
 
 export const PageHeader = () => {
   return (
-    <ContentContainer className="py-12 space-y-2">
+    <ContentContainer className="pt-12 space-y-2">
       <Link
         href={"/"}
         className="scroll-m-20  text-4xl md:text-6xl font-medium tracking-tight text-balance"
