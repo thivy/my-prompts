@@ -7,8 +7,9 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PIXELPrompt - Discover Premium AI Visual Prompts & Techniques",
-  description: "Explore our curated collection of professional AI prompts for creating stunning digital art. Featured 3D renders, character designs, and creative techniques for AI-generated visuals.",
+  title: "PIXELPrompt - Discover AI Visual Prompts & Techniques",
+  description:
+    "Explore our curated collection of professional AI prompts for creating stunning digital art. Featured 3D renders, character designs, and creative techniques for AI-generated visuals.",
   keywords: [
     "AI prompts",
     "AI art gallery",
@@ -19,11 +20,12 @@ export const metadata: Metadata = {
     "character AI prompts",
     "AI art techniques",
     "stable diffusion prompts",
-    "midjourney prompts"
+    "midjourney prompts",
   ],
   openGraph: {
-    title: "PIXELPrompt - Discover Premium AI Visual Prompts & Techniques",
-    description: "Explore our curated collection of professional AI prompts for creating stunning digital art.",
+    title: "PIXELPrompt - Discover AI Visual Prompts & Techniques",
+    description:
+      "Explore our curated collection of professional AI prompts for creating stunning digital art.",
     type: "website",
     url: "/",
     images: [
@@ -37,8 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PIXELPrompt - Discover Premium AI Visual Prompts & Techniques",
-    description: "Explore our curated collection of professional AI prompts for creating stunning digital art.",
+    title: "PIXELPrompt - Discover AI Visual Prompts & Techniques",
+    description:
+      "Explore our curated collection of professional AI prompts for creating stunning digital art.",
     images: ["/api/og"],
   },
   alternates: {
