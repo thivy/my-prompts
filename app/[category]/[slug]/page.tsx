@@ -140,34 +140,31 @@ export default async function PromptPage({
           }),
         }}
       />
-      <div className="max-w-none">
+      <div className="max-w-none space-y-12">
         <ContentContainer className="space-y-6">
           <h1 className="font-semibold tracking-tight text-4xl">
             {meta.title}
           </h1>
           <CopyPromptButton text={body} />
           {meta.description && (
-            <p className="text-gray-600 text-xl">{meta.description}</p>
+            <p className="text-gray-600 text-2xl">{meta.description}</p>
           )}
         </ContentContainer>
 
         <ContentContainer className="text-2xl">
           {renderMarkdoc(body, mdComponents)}
         </ContentContainer>
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
           {meta.images.map((src, i) => (
-            <div
+            <Image
               key={i}
-              className="relative aspect-square overflow-hidden rounded-xl bg-gray-50"
-            >
-              <Image
-                src={src}
-                alt={`${meta.title} sample ${i + 1}`}
-                fill
-                unoptimized
-                className="object-cover"
-              />
-            </div>
+              src={src}
+              alt={`${meta.title} sample ${i + 1}`}
+              unoptimized
+              width={600}
+              height={600}
+              className="object-contain rounded-xl shadow-2xl"
+            />
           ))}
         </div>
       </div>
