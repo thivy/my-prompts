@@ -32,7 +32,7 @@ export default async function CategoryPage({
           <h1 className="text-6xl font-bold text-gray-300">404</h1>
           <h2 className="text-2xl font-medium text-gray-700">Category Not Found</h2>
           <p className="text-gray-600 max-w-md">
-            The category you're looking for doesn't exist or may have been moved.
+            The category you&apos;re looking for doesn&apos;t exist or may have been moved.
           </p>
         </div>
       </div>
