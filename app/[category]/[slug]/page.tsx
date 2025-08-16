@@ -6,6 +6,7 @@ import {
   getPromptsByCategory,
 } from "@/lib/content";
 import { renderMarkdoc } from "@/lib/markdoc";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -20,6 +21,72 @@ export async function generateStaticParams() {
   );
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string; slug: string }>;
+}): Promise<Metadata> {
+  const { category, slug } = await params;
+  const data = getPrompt(category, slug);
+  
+  if (!data) {
+    return {
+      title: "Prompt Not Found",
+      description: "The requested AI prompt could not be found.",
+    };
+  }
+
+  const { meta } = data;
+  const categoryName = getAllCategories().find(c => c.slug === category)?.name || category;
+  
+  // Create compelling meta description from prompt data
+  const description = meta.description 
+    ? meta.description.length > 155 
+      ? `${meta.description.substring(0, 152)}...`
+      : meta.description
+    : `Discover ${meta.title} AI prompt in the ${categoryName} category. Professional techniques and tips for creating stunning AI-generated art.`;
+
+  return {
+    title: meta.title,
+    description,
+    keywords: [
+      "AI prompt",
+      meta.title.toLowerCase(),
+      categoryName.toLowerCase(),
+      "AI art",
+      "digital art",
+      "AI generated",
+      "creative prompts",
+      ...(category === "3d" ? ["3D rendering", "3D art", "modeling"] : []),
+      ...(category === "characters" ? ["character design", "portrait", "character art"] : [])
+    ],
+    openGraph: {
+      title: meta.title,
+      description,
+      type: "article",
+      url: `/${category}/${slug}`,
+      images: meta.images.length > 0 ? [
+        {
+          url: meta.images[0],
+          width: 1200,
+          height: 630,
+          alt: meta.title,
+        }
+      ] : [],
+      tags: [categoryName, "AI prompt", "AI art"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description,
+      images: meta.images.length > 0 ? [meta.images[0]] : [],
+    },
+    alternates: {
+      canonical: `/${category}/${slug}`,
+    },
+  };
+}
+
 export default async function PromptPage({
   params,
 }: {
@@ -32,33 +99,62 @@ export default async function PromptPage({
   const mdComponents = { Callout } as const;
 
   return (
-    <article className="max-w-none space-y-12">
-      <ContentContainer className="space-y-6">
-        <h1 className="font-semibold tracking-tight text-4xl">{meta.title}</h1>
-        {meta.description && (
-          <p className="text-gray-600">{meta.description}</p>
-        )}
-      </ContentContainer>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": meta.title,
+            "description": meta.description,
+            "creator": {
+              "@type": "Organization",
+              "name": "PIXELPrompt"
+            },
+            "category": category,
+            "keywords": [meta.title, category, "AI prompt", "AI art", "digital art"],
+            "image": meta.images.length > 0 ? meta.images : undefined,
+            "url": `/${category}/${slug}`,
+            "datePublished": new Date().toISOString(),
+            "inLanguage": "en-US",
+            "isAccessibleForFree": true,
+            "publisher": {
+              "@type": "Organization", 
+              "name": "PIXELPrompt",
+              "url": "/"
+            }
+          })
+        }}
+      />
+      <article className="max-w-none space-y-12">
+        <ContentContainer className="space-y-6">
+          <h1 className="font-semibold tracking-tight text-4xl">{meta.title}</h1>
+          {meta.description && (
+            <p className="text-gray-600">{meta.description}</p>
+          )}
+        </ContentContainer>
 
-      <ContentContainer className="text-2xl">
-        {renderMarkdoc(body, mdComponents)}
-      </ContentContainer>
-      <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
-        {meta.images.map((src, i) => (
-          <div
-            key={i}
-            className="relative aspect-square overflow-hidden rounded-xl bg-gray-50"
-          >
-            <Image
-              src={src}
-              alt={`${meta.title} sample ${i + 1}`}
-              fill
-              unoptimized
-              className="object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </article>
+        <ContentContainer className="text-2xl">
+          {renderMarkdoc(body, mdComponents)}
+        </ContentContainer>
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
+          {meta.images.map((src, i) => (
+            <div
+              key={i}
+              className="relative aspect-square overflow-hidden rounded-xl bg-gray-50"
+            >
+              <Image
+                src={src}
+                alt={`${meta.title} sample ${i + 1}`}
+                fill
+                unoptimized
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </article>
+    </>
   );
 }
