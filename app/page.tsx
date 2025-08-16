@@ -51,7 +51,7 @@ export default function Home() {
   const featured = getFeaturedPrompts();
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 pb-12">
       <div className="space-y-24">
         <CategoryScroll slug={""} prompts={featured} title={"Featured"} />
         {categories.map((category) => (

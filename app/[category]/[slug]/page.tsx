@@ -1,5 +1,6 @@
 import Callout from "@/components/callout";
 import { ContentContainer } from "@/components/content-container";
+import { CopyPromptButton } from "@/components/copy-prompt-button";
 import {
   getAllCategories,
   getPrompt,
@@ -87,6 +88,7 @@ export async function generateMetadata({
   };
 }
 
+
 export default async function PromptPage({
   params,
 }: {
@@ -156,5 +158,6 @@ export default async function PromptPage({
         </div>
       </article>
     </>
+
   );
 }
