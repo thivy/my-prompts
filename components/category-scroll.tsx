@@ -1,4 +1,4 @@
-import { Prompt } from "@/lib/content";
+import { Prompt, toImagePath } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
 type Prop = {
@@ -21,14 +21,13 @@ export const CategoryScroll = ({ prompts, title, slug }: Prop) => {
             className="rounded-xl overflow-hidden relative aspect-square group"
           >
             <Image
-              src={prompt.images?.[0] || ""}
+              src={toImagePath(prompt.images?.[0] || "")}
               alt="Collection Item"
               className="object-cover z-0"
               loading="lazy"
               quality={100}
               fill
               placeholder="blur"
-              blurDataURL={prompt.images?.[0] || ""}
             />
             <div className="p-4 h-full w-full mask-t-from-5% mask-to-0% z-10 backdrop-blur-[100px] absolute text-gray-50 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/20 duration-700"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">

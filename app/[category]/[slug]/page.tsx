@@ -5,6 +5,7 @@ import {
   getAllCategories,
   getPrompt,
   getPromptsByCategory,
+  toImagePath,
 } from "@/lib/content";
 import { renderMarkdoc } from "@/lib/markdoc";
 import type { Metadata } from "next";
@@ -158,7 +159,7 @@ export default async function PromptPage({
           {meta.images.map((src, i) => (
             <Image
               key={i}
-              src={src}
+              src={toImagePath(src)}
               alt={`${meta.title} sample ${i + 1}`}
               unoptimized
               width={600}
