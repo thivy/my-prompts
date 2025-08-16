@@ -11,7 +11,8 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
       className="py-4 w-full overflow-x-auto scroll-smooth hide-scrollbar snap-x snap-mandatory [--edge:calc(max(1rem,(100%-72rem)/2))]"
     >
       <ul
-        className="flex min-w-max gap-4 snap-x snap-mandatory overflow-x-auto
+        className="flex min-w-max gap-2 snap-x snap-mandatory overflow-x-auto
+        py-2
             pl-[var(--edge)]"
       >
         {categories.map((c) => (
@@ -21,9 +22,9 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
           >
             <Link
               href={`/categories/${c.slug}`}
-              className="group inline-flex flex-col items-stretch gap-2 rounded-xl pr-3 ring-0 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+              className="group inline-flex flex-col items-stretch gap-2 rounded-xl ring-0 transition focus-visible:ring-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500/60"
             >
-              <span className="relative size-[30vw] sm:size-[100px] overflow-hidden rounded-lg">
+              <span className="relative size-[30vw] sm:size-[100px] rounded-lg">
                 <Image
                   src={toImagePath(`/content/${c.slug}/icon.png`)}
                   alt={c.name}

@@ -32,7 +32,7 @@ export default async function PromptPage({
   const mdComponents = { Callout } as const;
 
   return (
-    <article className="max-w-none space-y-12">
+    <article className="max-w-none space-y-12  pb-12">
       <ContentContainer className="space-y-6">
         <h1 className="font-semibold tracking-tight text-4xl">{meta.title}</h1>
         {meta.description && (
@@ -40,7 +40,7 @@ export default async function PromptPage({
         )}
       </ContentContainer>
 
-      <ContentContainer className="text-2xl">
+      <ContentContainer className="text-xl">
         {renderMarkdoc(body, mdComponents)}
       </ContentContainer>
       <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
