@@ -74,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fontClassName} antialiased scroll-smooth bg-slate-100 space-y-12 pb-12`}
+        className={`${fontClassName} antialiased scroll-smooth bg-slate-100 space-y-12 pb-[180px]`}
       >
         <PageHeader />
         <HeroCategoryMenu categories={categories} />

@@ -140,14 +140,14 @@ export default async function PromptPage({
           }),
         }}
       />
-      <article className="max-w-none space-y-12">
+      <div className="max-w-none">
         <ContentContainer className="space-y-6">
           <h1 className="font-semibold tracking-tight text-4xl">
             {meta.title}
           </h1>
           <CopyPromptButton text={body} />
           {meta.description && (
-            <p className="text-gray-600">{meta.description}</p>
+            <p className="text-gray-600 text-xl">{meta.description}</p>
           )}
         </ContentContainer>
 
@@ -170,7 +170,7 @@ export default async function PromptPage({
             </div>
           ))}
         </div>
-      </article>
+      </div>
     </>
   );
 }
