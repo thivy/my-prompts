@@ -20,6 +20,8 @@ export async function generateStaticParams() {
   );
 }
 
+import { CopyPromptButton } from "@/components/copy-prompt-button";
+
 export default async function PromptPage({
   params,
 }: {
@@ -35,6 +37,8 @@ export default async function PromptPage({
     <article className="max-w-none space-y-12  pb-12">
       <ContentContainer className="space-y-6">
         <h1 className="font-semibold tracking-tight text-4xl">{meta.title}</h1>
+        {/* Copy Prompt Button */}
+        <CopyPromptButton text={body} />
         {meta.description && (
           <p className="text-gray-600">{meta.description}</p>
         )}
