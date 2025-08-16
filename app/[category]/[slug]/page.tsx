@@ -29,7 +29,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category, slug } = await params;
   const data = getPrompt(category, slug);
-  
+
   if (!data) {
     return {
       title: "Prompt Not Found",
@@ -38,11 +38,12 @@ export async function generateMetadata({
   }
 
   const { meta } = data;
-  const categoryName = getAllCategories().find(c => c.slug === category)?.name || category;
-  
+  const categoryName =
+    getAllCategories().find((c) => c.slug === category)?.name || category;
+
   // Create compelling meta description from prompt data
-  const description = meta.description 
-    ? meta.description.length > 155 
+  const description = meta.description
+    ? meta.description.length > 155
       ? `${meta.description.substring(0, 152)}...`
       : meta.description
     : `Discover ${meta.title} AI prompt in the ${categoryName} category. Professional techniques and tips for creating stunning AI-generated art.`;
@@ -59,21 +60,26 @@ export async function generateMetadata({
       "AI generated",
       "creative prompts",
       ...(category === "3d" ? ["3D rendering", "3D art", "modeling"] : []),
-      ...(category === "characters" ? ["character design", "portrait", "character art"] : [])
+      ...(category === "characters"
+        ? ["character design", "portrait", "character art"]
+        : []),
     ],
     openGraph: {
       title: meta.title,
       description,
       type: "article",
       url: `/${category}/${slug}`,
-      images: meta.images.length > 0 ? [
-        {
-          url: meta.images[0],
-          width: 1200,
-          height: 630,
-          alt: meta.title,
-        }
-      ] : [],
+      images:
+        meta.images.length > 0
+          ? [
+              {
+                url: meta.images[0],
+                width: 1200,
+                height: 630,
+                alt: meta.title,
+              },
+            ]
+          : [],
       tags: [categoryName, "AI prompt", "AI art"],
     },
     twitter: {
@@ -87,7 +93,6 @@ export async function generateMetadata({
     },
   };
 }
-
 
 export default async function PromptPage({
   params,
@@ -108,30 +113,39 @@ export default async function PromptPage({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CreativeWork",
-            "name": meta.title,
-            "description": meta.description,
-            "creator": {
+            name: meta.title,
+            description: meta.description,
+            creator: {
               "@type": "Organization",
-              "name": "PIXELPrompt"
+              name: "PIXELPrompt",
             },
-            "category": category,
-            "keywords": [meta.title, category, "AI prompt", "AI art", "digital art"],
-            "image": meta.images.length > 0 ? meta.images : undefined,
-            "url": `/${category}/${slug}`,
-            "datePublished": new Date().toISOString(),
-            "inLanguage": "en-US",
-            "isAccessibleForFree": true,
-            "publisher": {
-              "@type": "Organization", 
-              "name": "PIXELPrompt",
-              "url": "/"
-            }
-          })
+            category: category,
+            keywords: [
+              meta.title,
+              category,
+              "AI prompt",
+              "AI art",
+              "digital art",
+            ],
+            image: meta.images.length > 0 ? meta.images : undefined,
+            url: `/${category}/${slug}`,
+            datePublished: new Date().toISOString(),
+            inLanguage: "en-US",
+            isAccessibleForFree: true,
+            publisher: {
+              "@type": "Organization",
+              name: "PIXELPrompt",
+              url: "/",
+            },
+          }),
         }}
       />
       <article className="max-w-none space-y-12">
         <ContentContainer className="space-y-6">
-          <h1 className="font-semibold tracking-tight text-4xl">{meta.title}</h1>
+          <h1 className="font-semibold tracking-tight text-4xl">
+            {meta.title}
+          </h1>
+          <CopyPromptButton text={body} />
           {meta.description && (
             <p className="text-gray-600">{meta.description}</p>
           )}
@@ -158,6 +172,5 @@ export default async function PromptPage({
         </div>
       </article>
     </>
-
   );
 }

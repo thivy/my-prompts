@@ -11,10 +11,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://thivy.github.io/my-prompts"),
   title: {
     default: "PIXELPrompt - AI Visual Prompts Gallery",
-    template: "%s | PIXELPrompt"
+    template: "%s | PIXELPrompt",
   },
-  description: "Discover handpicked AI visual prompts and the techniques that power stunning digital art. Browse curated galleries of 3D renders, character designs, and creative AI-generated content.",
-  keywords: ["AI prompts", "AI art", "digital art prompts", "AI generated images", "stable diffusion prompts", "midjourney prompts", "AI visual art", "creative prompts"],
+  description:
+    "Discover handpicked AI visual prompts and the techniques that power stunning digital art. Browse curated galleries of 3D renders, character designs, and creative AI-generated content.",
+  keywords: [
+    "AI prompts",
+    "AI art",
+    "digital art prompts",
+    "AI generated images",
+    "stable diffusion prompts",
+    "midjourney prompts",
+    "AI visual art",
+    "creative prompts",
+  ],
   authors: [{ name: "PIXELPrompt" }],
   creator: "PIXELPrompt",
   publisher: "PIXELPrompt",
@@ -24,7 +34,8 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "PIXELPrompt",
     title: "PIXELPrompt - AI Visual Prompts Gallery",
-    description: "Discover handpicked AI visual prompts and the techniques that power stunning digital art.",
+    description:
+      "Discover handpicked AI visual prompts and the techniques that power stunning digital art.",
     images: [
       {
         url: "/api/og",
@@ -37,7 +48,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "PIXELPrompt - AI Visual Prompts Gallery",
-    description: "Discover handpicked AI visual prompts and the techniques that power stunning digital art.",
+    description:
+      "Discover handpicked AI visual prompts and the techniques that power stunning digital art.",
     images: ["/api/og"],
   },
   robots: {
@@ -62,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fontClassName} antialiased scroll-smooth bg-slate-100 space-y-12`}
+        className={`${fontClassName} antialiased scroll-smooth bg-slate-100 space-y-12 pb-12`}
       >
         <PageHeader />
         <HeroCategoryMenu categories={categories} />
