@@ -56,13 +56,14 @@ export default function Home() {
   return (
     <div className="space-y-12 pb-12">
       <div className="space-y-24">
-        <CategoryScroll slug={""} prompts={featured} title={"Featured"} />
+        <CategoryScroll slug={""} prompts={featured} title={"Featured"} useMasonry={true} />
         {categories.map((category) => (
           <CategoryScroll
             key={category.slug}
             slug={category.slug}
             prompts={getPromptsByCategory(category.slug)}
             title={category.name}
+            useMasonry={false}
           />
         ))}
       </div>
