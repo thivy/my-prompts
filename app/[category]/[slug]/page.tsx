@@ -141,20 +141,18 @@ export default async function PromptPage({
           }),
         }}
       />
-      <div className="max-w-none space-y-12">
-        <ContentContainer className="space-y-6">
+      <div className="max-w-none space-y-12 ">
+        <ContentContainer className="space-y-6 text-2xl leading-relaxed">
           <h1 className="font-semibold tracking-tight text-4xl">
             {meta.title}
           </h1>
           <CopyPromptButton text={body} />
           {meta.description && (
-            <p className="text-gray-600 text-2xl">{meta.description}</p>
-          )}
-        </ContentContainer>
-
-        <ContentContainer className="text-2xl">
+            <p className="text-gray-400">{meta.description}</p>
+          )}{" "}
           {renderMarkdoc(body, mdComponents)}
         </ContentContainer>
+
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
           {meta.images.map((src, i) => (
             <Image

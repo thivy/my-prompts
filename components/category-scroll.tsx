@@ -11,7 +11,7 @@ export const CategoryScroll = ({ prompts, title, slug }: Prop) => {
   return (
     <div className="category-scroll space-y-12 px-6 mx-auto">
       <header className="container max-w-6xl mx-auto">
-        <h2 className="text-3xl font-medium tracking-tighter">{title}</h2>
+        <h2 className="text-5xl font-medium tracking-tighter">{title}</h2>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {prompts.map((prompt, id) => (
@@ -27,7 +27,6 @@ export const CategoryScroll = ({ prompts, title, slug }: Prop) => {
               loading="lazy"
               quality={100}
               fill
-              placeholder="blur"
             />
             <div className="p-4 h-full w-full mask-t-from-5% mask-to-0% z-10 backdrop-blur-[100px] absolute text-gray-50 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/20 duration-700"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
