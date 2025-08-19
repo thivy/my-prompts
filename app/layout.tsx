@@ -2,12 +2,8 @@ import { HeroCategoryMenu } from "@/components/hero-category-menu";
 import { PageHeader } from "@/components/page-header";
 import { getAllCategories } from "@/lib/content";
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -79,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.className} antialiased scroll-smooth bg-slate-100 space-y-12 pb-[180px]`}
+        className={`${plusJakartaSans.className} antialiased scroll-smooth bg-stone-100 space-y-12 pb-[180px]`}
       >
         <PageHeader />
         <HeroCategoryMenu categories={categories} />

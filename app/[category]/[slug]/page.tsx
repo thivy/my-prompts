@@ -142,7 +142,7 @@ export default async function PromptPage({
         }}
       />
       <div className="max-w-none space-y-12 ">
-        <ContentContainer className="space-y-6 text-xl sm:text-2xl leading-relaxed">
+        <ContentContainer className="space-y-6 text-xl sm:text-2xl leading-relaxed font-medium">
           <h1 className="font-semibold tracking-tight text-4xl">
             {meta.title}
           </h1>
