@@ -11,11 +11,11 @@ export const PageHeader = () => {
       >
         <span className="font-extrabold text-stone-500">PIXEL</span> Prompts
       </Link>
-      <span className="px-20">
+      <span className="">
         <img
           src={toImagePath("/header/hero.png")}
           alt="Main Logo"
-          className="px-20"
+          className="md:px-20"
         />
       </span>
       <p className="text-2xl sm:text-4xl md:text-6xl text-stone-500 sm:text-balance tracking-tighter font-normal text-center">
