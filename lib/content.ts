@@ -109,5 +109,5 @@ function toTitle(s: string) {
 
 export const toImagePath = (path: string) => {
   const basePathEnv = process.env.NEXT_PUBLIC_BASE_PATH?.trim();
-  return basePathEnv ? `${basePathEnv}/${path}` : `${path}`;
+  return basePathEnv ? `${basePathEnv}${path}` : `${path}`;
 };
