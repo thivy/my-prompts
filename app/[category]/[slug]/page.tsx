@@ -143,7 +143,7 @@ export default async function PromptPage({
         }}
       />
       <div className="space-y-12 ">
-        <ContentContainer className="space-y-6 text-xl leading-relaxed font-medium">
+        <ContentContainer className="space-y-6 sm:text-xl leading-relaxed font-medium">
           <HeaderHeroImage
             imageUrl={toImagePath(meta.cover)}
             description={meta.description}
