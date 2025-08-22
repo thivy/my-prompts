@@ -40,7 +40,7 @@ export function Heading({
     3: "mt-6 mb-3 text-xl md:text-2xl font-semibold",
     4: "mt-5 mb-2 text-lg md:text-xl font-semibold",
     5: "mt-4 mb-2 text-base md:text-lg font-semibold",
-    6: "mt-3 mb-2 text-sm md:text-base font-semibold uppercase tracking-wide text-gray-500",
+    6: "mt-3 mb-2 text-sm md:text-base font-semibold uppercase tracking-wide ",
   };
   return React.createElement(tag, { className: classes[level] }, children);
 }
