@@ -1,4 +1,5 @@
 "use client";
+import { copyToClipboard } from "@/lib/helper";
 import { useState, useTransition } from "react";
 
 export function CopyPromptButton({ text }: { text: string }) {
@@ -6,7 +7,7 @@ export function CopyPromptButton({ text }: { text: string }) {
   const [isPending, startTransition] = useTransition();
   async function handleCopy() {
     try {
-      await navigator.clipboard.writeText(text);
+      await copyToClipboard(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {

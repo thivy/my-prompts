@@ -18,10 +18,10 @@ export const PageHeader = () => {
           className="md:px-20"
         />
       </span>
-      <p className="text-2xl py-8 sm:text-4xl md:text-5xl text-stone-500 sm:text-balance tracking-tight font-normal text-center">
+      <h1 className="text-2xl py-8 sm:text-4xl md:text-5xl text-stone-500 sm:text-balance tracking-tight font-normal text-center">
         A handpicked gallery of AI-fueled visuals and the prompts that power
         them.
-      </p>
+      </h1>
     </ContentContainer>
   );
 };
