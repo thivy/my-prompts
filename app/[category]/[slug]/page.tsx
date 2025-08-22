@@ -148,7 +148,7 @@ export default async function PromptPage({
             imageUrl={toImagePath(meta.cover)}
             description={meta.description}
           />
-          <h1 className="font-semibold tracking-tight text-6xl">
+          <h1 className="font-semibold tracking-tight text-4xl md:text-6xl">
             {meta.title}
           </h1>
           <CopyPromptButton text={body} />
