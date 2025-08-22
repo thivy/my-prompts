@@ -3,7 +3,8 @@ slug: inflated-impact
 title: Inflated Impact
 category: 3d
 featured: true
-description: A hyper-realistic 3D celebration of bold textures and playful typography — balloon letters burst with personality against a soft orange backdrop, blending pop-art flair with high-fashion polish.
+description: Hyper‑real 3D balloon letters bursting with bold texture on a peachy backdrop.
+cover: /header/hero.png
 images:
   - /content/3d/inflated-impact/1.png
   - /content/3d/inflated-impact/2.png

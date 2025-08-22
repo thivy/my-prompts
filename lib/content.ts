@@ -7,6 +7,7 @@ export type Prompt = {
   title: string;
   category: string;
   description: string;
+  cover: string;
   featured: boolean;
   images: string[];
 };
@@ -97,6 +98,7 @@ function normalizeFrontmatter(data: Record<string, unknown>): Prompt {
     category: String(data.category ?? ""),
     description: typeof data.description === "string" ? data.description : "",
     featured: Boolean(data.featured),
+    cover: typeof data.cover === "string" ? data.cover : "",
     images: Array.isArray(data.images)
       ? (data.images as unknown[]).map(String)
       : [],

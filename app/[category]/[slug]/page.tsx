@@ -1,6 +1,7 @@
 import Callout from "@/components/callout";
 import { ContentContainer } from "@/components/content-container";
 import { CopyPromptButton } from "@/components/copy-prompt-button";
+import { HeaderHeroImage } from "@/components/header-hero-image";
 import {
   getAllCategories,
   getPrompt,
@@ -142,14 +143,16 @@ export default async function PromptPage({
         }}
       />
       <div className="space-y-12 ">
-        <ContentContainer className="space-y-6 text-xl sm:text-2xl leading-relaxed font-medium">
-          <h1 className="font-semibold tracking-tight text-4xl">
+        <ContentContainer className="space-y-6 text-xl leading-relaxed font-medium">
+          <HeaderHeroImage
+            imageUrl={toImagePath(meta.cover)}
+            description={meta.description}
+          />
+          <h1 className="font-semibold tracking-tight text-6xl">
             {meta.title}
           </h1>
           <CopyPromptButton text={body} />
-          {meta.description && (
-            <p className="text-stone-400">{meta.description}</p>
-          )}
+
           {renderMarkdoc(body, mdComponents)}
         </ContentContainer>
 

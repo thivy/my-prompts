@@ -2,7 +2,7 @@
 import React from "react";
 
 export function P({ children }: { children?: React.ReactNode }) {
-  return <p className="my-12">{children}</p>;
+  return <p className="my-6">{children}</p>;
 }
 
 export function List({
