@@ -12,7 +12,7 @@ export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
     >
       <ul
         className="flex min-w-max gap-2 snap-x snap-mandatory overflow-x-auto
-        py-2
+        py-4
             pl-[var(--edge)]"
       >
         {categories.map((c) => (

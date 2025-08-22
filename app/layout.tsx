@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.className} antialiased scroll-smooth bg-white text-stone-600 space-y-12 pb-[180px]`}
+        className={`${plusJakartaSans.className} antialiased scroll-smooth bg-white text-stone-600 pb-[180px]`}
       >
         <PageHeader />
         <HeroCategoryMenu categories={categories} />

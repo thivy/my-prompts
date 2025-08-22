@@ -1,8 +1,10 @@
 import { CategoryScroll } from "@/components/category-scroll";
+import { HeaderHeroImage } from "@/components/header-hero-image";
 import {
   getAllCategories,
   getFeaturedPrompts,
   getPromptsByCategory,
+  toImagePath,
 } from "@/lib/content";
 import type { Metadata } from "next";
 
@@ -55,6 +57,11 @@ export default function Home() {
 
   return (
     <div className="space-y-12 pb-12">
+      <HeaderHeroImage
+        imageUrl={toImagePath("/header/hero.png")}
+        description=" A handpicked gallery of AI-fueled visuals and the prompts that power
+        them."
+      />
       <div className="space-y-24">
         <CategoryScroll slug={""} prompts={featured} title={"Featured"} />
         {categories.map((category) => (
