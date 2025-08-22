@@ -30,10 +30,10 @@ export const CategoryScroll = ({ prompts, title, slug }: Prop) => {
             />
             <div className="p-4 h-full w-full mask-t-from-5% mask-to-0% z-10 backdrop-blur-[100px] absolute text-gray-50 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/20 duration-700"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
-              <h3 className="text-lg tracking-tight text-gray-50">
+              <h3 className="text-lg tracking-tight text-stone-50">
                 {prompt.title}
               </h3>
-              <p className="text-xs font-light text-gray-50">
+              <p className="text-xs font-light text-stone-100">
                 {prompt.description}
               </p>
             </div>
