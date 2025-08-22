@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div className="space-y-12 pb-12">
       <HeaderHeroImage
-        imageUrl={toImagePath("/header/hero.png")}
+        imageUrl={toImagePath("header/hero.png")}
         description=" A handpicked gallery of AI-fueled visuals and the prompts that power
         them."
       />
