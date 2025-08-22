@@ -12,7 +12,7 @@ export const HeaderHeroImage = ({
 }: HeaderHeroImageProps) => {
   return (
     <ContentContainer className="">
-      <div className="md:px-20 relative w-full h-[200px] sm:h-[420px] md:h-[520px] lg:h-[600px]">
+      <div className="relative w-full h-[200px] sm:h-[420px] md:h-[520px] lg:h-[600px]">
         <Image
           src={imageUrl}
           alt={description ?? "Hero Image"}
