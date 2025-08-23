@@ -4,7 +4,7 @@ title: Inflated Impact
 category: 3d
 featured: true
 description: Hyper‑real 3D balloon letters bursting with bold texture on a peachy backdrop.
-cover: /header/hero.png
+cover: /content/3d/inflated-impact/hero.png
 images:
   - /content/3d/inflated-impact/1.png
   - /content/3d/inflated-impact/2.png
