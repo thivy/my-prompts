@@ -62,17 +62,15 @@ export default function Home() {
         description=" A handpicked gallery of AI-fueled visuals and the prompts that power
         them."
       />
-      <div className="space-y-24">
-        <CategoryScroll slug={""} prompts={featured} title={"Featured"} />
-        {categories.map((category) => (
-          <CategoryScroll
-            key={category.slug}
-            slug={category.slug}
-            prompts={getPromptsByCategory(category.slug)}
-            title={category.name}
-          />
-        ))}
-      </div>
+      <CategoryScroll slug={""} prompts={featured} title={"Featured"} />
+      {categories.map((category) => (
+        <CategoryScroll
+          key={category.slug}
+          slug={category.slug}
+          prompts={getPromptsByCategory(category.slug)}
+          title={category.name}
+        />
+      ))}
     </div>
   );
 }

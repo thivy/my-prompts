@@ -143,15 +143,14 @@ export default async function PromptPage({
         }}
       />
       <div className="space-y-12 ">
-        <ContentContainer className="space-y-6 sm:text-xl leading-relaxed font-medium">
-          <HeaderHeroImage
-            imageUrl={toImagePath(meta.cover)}
-            description={meta.description}
-          />
+        <HeaderHeroImage
+          imageUrl={toImagePath(meta.cover)}
+          description={meta.description}
+        />
+        <ContentContainer className="space-y-6 sm:text-xl  font-medium">
           <h1 className="font-semibold tracking-tight text-4xl md:text-6xl">
             {meta.title}
           </h1>
-          <CopyPromptButton text={body} />
 
           {renderMarkdoc(body, mdComponents)}
         </ContentContainer>
@@ -170,6 +169,7 @@ export default async function PromptPage({
           ))}
         </div>
       </div>
+      <CopyPromptButton text={body} />
     </>
   );
 }

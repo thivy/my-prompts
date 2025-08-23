@@ -1,6 +1,7 @@
 import { Prompt, toImagePath } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
+import { ContentContainer } from "./content-container";
 type Prop = {
   title: string;
   slug: string;
@@ -9,12 +10,12 @@ type Prop = {
 
 export const CategoryScroll = ({ prompts, title, slug }: Prop) => {
   return (
-    <div className="category-scroll space-y-12 px-6 mx-auto">
-      <header className="container max-w-6xl mx-auto">
+    <div className="category-scroll space-y-6 px-6 mx-auto">
+      <ContentContainer>
         <h2 className="text-2xl sm:text-4xl text-stone-500 font-medium tracking-tight">
           {title}
         </h2>
-      </header>
+      </ContentContainer>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {prompts.map((prompt, id) => (
           <Link

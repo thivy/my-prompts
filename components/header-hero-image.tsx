@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ContentContainer } from "./content-container";
 
 interface HeaderHeroImageProps {
   imageUrl: string;
@@ -10,8 +11,8 @@ export const HeaderHeroImage = ({
   description,
 }: HeaderHeroImageProps) => {
   return (
-    <div className="">
-      <div className="relative w-full h-[200px] sm:h-[420px] md:h-[520px] lg:h-[600px]">
+    <ContentContainer className="">
+      <div className="relative w-full aspect-video">
         <Image
           src={imageUrl}
           alt={description ?? "Hero Image"}
@@ -20,9 +21,9 @@ export const HeaderHeroImage = ({
           className="object-contain"
         />
       </div>
-      <p className="text-2xl py-8 sm:text-4xl md:text-5xl text-stone-500 sm:text-balance tracking-tight font-normal text-center">
+      <p className="text-2xl sm:text-4xl md:text-5xl text-stone-500 sm:text-balance leading-tight tracking-tight font-normal text-center">
         {description}
       </p>
-    </div>
+    </ContentContainer>
   );
 };
