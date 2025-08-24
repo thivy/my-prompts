@@ -1,6 +1,6 @@
+import { generateCategoryMetadata } from "@/app-pages/category/category-metadata";
+import CategoryPage from "@/app-pages/category/category-page";
 import { getAllCategories, getPromptsByCategory } from "@/lib/content";
-import { generateCategoryMetadata } from "@/pages/category/category-metadata";
-import CategoryPage from "@/pages/category/category-page";
 import type { Metadata } from "next";
 
 export const dynamic = "force-static";
