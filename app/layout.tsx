@@ -1,4 +1,4 @@
-import { HeroCategoryMenu } from "@/components/hero-category-menu";
+import { HeroMenu } from "@/components/hero-menu";
 import { PageHeader } from "@/components/page-header";
 import { getAllCategories } from "@/lib/content";
 import type { Metadata } from "next";
@@ -78,7 +78,7 @@ export default function RootLayout({
         className={`${plusJakartaSans.className} antialiased scroll-smooth bg-white text-stone-600 pb-[180px]`}
       >
         <PageHeader />
-        <HeroCategoryMenu categories={categories} />
+        <HeroMenu categories={categories} />
         {children}
       </body>
     </html>

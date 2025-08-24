@@ -6,10 +6,7 @@ interface HeaderHeroImageProps {
   description: string;
 }
 
-export const HeaderHeroImage = ({
-  imageUrl,
-  description,
-}: HeaderHeroImageProps) => {
+export const HeroImage = ({ imageUrl, description }: HeaderHeroImageProps) => {
   return (
     <ContentContainer className="space-y-12">
       <div className="relative w-full aspect-video">

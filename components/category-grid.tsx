@@ -8,7 +8,7 @@ type Prop = {
   prompts: Prompt[];
 };
 
-export const CategoryScroll = ({ prompts, title, slug }: Prop) => {
+export const CategoryGrid = ({ prompts, title, slug }: Prop) => {
   return (
     <div className="category-scroll space-y-6 px-6 mx-auto">
       <ContentContainer>

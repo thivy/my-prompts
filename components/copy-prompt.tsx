@@ -2,7 +2,7 @@
 import { copyToClipboard } from "@/lib/helper";
 import { useState, useTransition } from "react";
 
-export function CopyPromptButton({ text }: { text: string }) {
+export function CopyPrompt({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   const [isPending, startTransition] = useTransition();
   async function handleCopy() {

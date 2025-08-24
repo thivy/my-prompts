@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type Category = { slug: string; name: string; cover?: string };
 
-export function HeroCategoryMenu({ categories }: { categories: Category[] }) {
+export function HeroMenu({ categories }: { categories: Category[] }) {
   return (
     <nav
       aria-label="Browse categories"
