@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
   output: "export",
   // Ensure URLs end with a slash to match GitHub Pages static hosting
   trailingSlash: true,
+  typedRoutes: true,
   // Prefix asset and route paths when deploying to a project page repo
   ...(normalizedBasePath
     ? {
@@ -27,6 +28,8 @@ const nextConfig: NextConfig = {
       }
     : {}),
   experimental: {
+    viewTransition: true,
+
     // Keep default experimental options, if any, and enable mdxRs if needed by Next 15
   },
   images: {
