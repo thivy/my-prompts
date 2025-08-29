@@ -54,32 +54,32 @@ export default async function CategoryPage({
           }),
         }}
       />
-      <div className="space-y-12 ">
-        <HeroImage
-          imageUrl={toImagePath(meta.cover)}
-          description={meta.description}
-        />
-        <ContentContainer className="space-y-6 sm:text-xl  font-medium">
-          <h1 className="font-semibold tracking-tight text-4xl md:text-6xl">
+      <div className="space-y-12 sm:text-lg">
+        <ContentContainer className="max-w-4xl mx-auto space-y-4">
+          <h1 className="font-semibold tracking-tight text-4xl md:text-5xl">
             {meta.title}
           </h1>
-
+          <p>{meta.description}</p>
+        </ContentContainer>
+        <div className="space-y-6 ">
+          <HeroImage imageUrl={toImagePath(meta.cover)} description={""} />
+          <ContentContainer className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {meta.images.map((src, i) => (
+              <Image
+                key={i}
+                src={toImagePath(src)}
+                alt={`${meta.title} sample ${i + 1}`}
+                unoptimized
+                width={600}
+                height={600}
+                className="object-contain rounded-xl shadow-sm bg-stone-200"
+              />
+            ))}
+          </ContentContainer>
+        </div>
+        <ContentContainer className="max-w-4xl ">
           {renderMarkdoc(body, mdComponents)}
         </ContentContainer>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6 px-6">
-          {meta.images.map((src, i) => (
-            <Image
-              key={i}
-              src={toImagePath(src)}
-              alt={`${meta.title} sample ${i + 1}`}
-              unoptimized
-              width={600}
-              height={600}
-              className="object-contain rounded-xl shadow-2xl"
-            />
-          ))}
-        </div>
       </div>
       <CopyPrompt text={body} />
     </>

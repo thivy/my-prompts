@@ -1,13 +1,1 @@
 @import "tailwindcss";
-
-@theme inline {
-}
-
-/* Hide scrollbars cross-browser while keeping scroll functionality */
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE and old Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, new Edge */
-}
