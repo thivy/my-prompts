@@ -40,7 +40,7 @@ export function CopyPrompt({ text, image }: { text: string; image: string }) {
           alt="Glass"
           className="w-full h-full resize pointer-events-none"
         />
-        <span className="pointer-events-none z-10 absolute inset-0 flex items-center justify-center shadow-sm font-medium">
+        <span className="pointer-events-none z-10 absolute inset-0 flex items-center justify-center font-medium">
           {copied ? "Copied" : isPending ? "Copying" : "Copy prompt"}
         </span>
       </button>
