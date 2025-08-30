@@ -18,7 +18,7 @@ export function CopyPrompt({ text, image }: { text: string; image: string }) {
 
   return (
     <div
-      className="fixed left-1/2 bottom-4 z-50 -translate-x-1/2 flex justify-center"
+      className="fixed left-1/2 bottom-2 md:bottom-4 z-50 -translate-x-1/2 flex justify-center"
       style={{ pointerEvents: "none" }}
     >
       <button
