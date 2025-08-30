@@ -24,8 +24,8 @@ export function CopyPrompt({ text }: { text: string }) {
       <button
         type="button"
         className={cn(
-          "relative px-10 py-4 rounded-full tracking-tight outline-none overflow-hidden select-none focus:outline-none ",
-          "bg-stone-200/50 text-stone-700 backdrop-blur-sm shadow-2xl border border-stone-400/30"
+          "relative h-[65px] md:h-[80px] rounded-full  outline-none overflow-hidden select-none focus:outline-none ",
+          " text-stone-600/70 backdrop-blur-xs shadow-md shadow-pink-200 bg-pink-400/25"
         )}
         onClick={() => startTransition(handleCopy)}
         style={{
@@ -33,8 +33,9 @@ export function CopyPrompt({ text }: { text: string }) {
         }}
         disabled={isPending}
       >
-        <span className="pointer-events-none z-10 relative">
-          {copied ? "Copied!" : isPending ? "Copying..." : "Copy Prompt"}
+        <img src={"/glass.png"} alt="Glass" className="w-full h-full" />
+        <span className="pointer-events-none z-10 absolute inset-0 flex items-center justify-center shadow-sm font-medium">
+          {copied ? "Copied!" : isPending ? "Copying..." : "Copy prompt"}
         </span>
       </button>
     </div>
