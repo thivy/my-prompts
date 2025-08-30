@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/cn";
+import { toImagePath } from "@/lib/content";
 import { copyToClipboard } from "@/lib/helper";
 import { useState, useTransition } from "react";
 
@@ -25,7 +26,9 @@ export function CopyPrompt({ text }: { text: string }) {
         type="button"
         className={cn(
           "relative h-[65px] md:h-[80px] rounded-full  outline-none overflow-hidden select-none focus:outline-none ",
-          " text-stone-600/70 backdrop-blur-xs shadow-md shadow-pink-200 bg-pink-400/25"
+          " text-stone-600/70 hover:text-stone-600 backdrop-blur-xs shadow-md shadow-pink-200 bg-pink-400/25 ",
+          "transition-transform duration-150 ease-out",
+          "active:scale-95"
         )}
         onClick={() => startTransition(handleCopy)}
         style={{
@@ -33,7 +36,11 @@ export function CopyPrompt({ text }: { text: string }) {
         }}
         disabled={isPending}
       >
-        <img src={"/glass.png"} alt="Glass" className="w-full h-full" />
+        <img
+          src={toImagePath("/glass.png")}
+          alt="Glass"
+          className="w-full h-full pointer-events-none"
+        />
         <span className="pointer-events-none z-10 absolute inset-0 flex items-center justify-center shadow-sm font-medium">
           {copied ? "Copied!" : isPending ? "Copying..." : "Copy prompt"}
         </span>
