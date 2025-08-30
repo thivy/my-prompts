@@ -24,7 +24,7 @@ export function CopyPrompt({ text, image }: { text: string; image: string }) {
       <button
         type="button"
         className={cn(
-          "relative h-[70px] w-auto rounded-full  outline-none select-none focus:outline-none ",
+          "relative w-[70%] sm:w-[40%] md:w-[23%] rounded-full  outline-none select-none focus:outline-none ",
           " text-stone-50/85  hover:text-stone-50 backdrop-blur-xs",
           "transition-transform duration-150 ease-out",
           "active:scale-95"
