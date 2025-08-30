@@ -24,8 +24,8 @@ export function CopyPrompt({ text, image }: { text: string; image: string }) {
       <button
         type="button"
         className={cn(
-          "relative h-[65px] md:h-[80px] w-auto rounded-full  outline-none select-none focus:outline-none ",
-          " text-stone-50 bg-pink-400/40 hover:text-stone-600 backdrop-blur-xs",
+          "relative h-[70px] w-auto rounded-full  outline-none select-none focus:outline-none ",
+          " text-stone-50/85 bg-pink-400/40 hover:text-stone-50 backdrop-blur-xs",
           "transition-transform duration-150 ease-out",
           "active:scale-95"
         )}
@@ -41,7 +41,7 @@ export function CopyPrompt({ text, image }: { text: string; image: string }) {
           className="w-full h-full resize pointer-events-none"
         />
         <span className="pointer-events-none z-10 absolute inset-0 flex items-center justify-center font-medium">
-          {copied ? "Copied" : isPending ? "Copying" : "Copy prompt"}
+          {copied ? "Copied" : isPending ? "Copying" : "Copy"}
         </span>
       </button>
     </div>
