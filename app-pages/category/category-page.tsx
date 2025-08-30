@@ -81,7 +81,7 @@ export default async function CategoryPage({
           {renderMarkdoc(body, mdComponents)}
         </ContentContainer>
       </div>
-      <CopyPrompt text={body} />
+      <CopyPrompt text={body} image={toImagePath("/buttons/glass.png")} />
     </>
   );
 }
